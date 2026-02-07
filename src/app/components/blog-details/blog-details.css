@@ -1,0 +1,273 @@
+body {
+  background: #0b0b0b;
+  color: #eee;
+}
+
+.hero {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.6);
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 40px;
+  color: white;
+  padding-right: 120px;
+  padding-bottom: 50px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 800;
+}
+
+.bg-orange {
+  background: linear-gradient(to right, #ff7a00, #ff5500);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.author img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background: #777;
+  border-radius: 50%;
+}
+
+.side{
+ position: sticky;
+ top: 90px;
+}
+.card-dark {
+  background: #111;
+  border: 1px solid #262626;
+  border-radius: 16px;
+  direction: rtl;
+}
+
+.toc a {
+  color: #a3a3a3;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+.toc a:hover {
+  background: rgba(249,115,22,.1);
+  color: #f97316;
+}
+
+.article-section {
+  direction: rtl;
+}
+
+.quote-box {
+  background: linear-gradient(90deg, rgba(255,140,0,0.15), rgba(0,0,0,0));
+  border: 1px solid rgba(255,140,0,0.4);
+  border-radius: 20px;
+  padding: 20px 30px;
+}
+
+.quote-box p {
+  margin: 0;
+  font-size: 1rem;
+  color: #f5f5f5;
+}
+
+.intro-text {
+  font-size: 1.05rem;
+  color: #ddd;
+  line-height: 1.8;
+}
+
+.content-block {
+  max-width: 850px;
+}
+
+.icon-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.icon-title i {
+ background-color: black;
+ color: #ff7a00;
+ padding: 6px;
+ width: auto;
+ height: auto;
+ border: #ff5500 1px solid;
+ border-radius: 10px;
+ font-size: 1.2rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.icon-title h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.content-block p {
+  color: #ccc;
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+.info-card {
+  background: #0e0e0e;
+  border-radius: 16px;
+  padding: 20px;
+  direction: rtl;
+  text-align: center;
+}
+
+.icon-box {
+  padding: 12px;
+  border-radius: 12px;
+  color: #ff7a00;
+  font-size: 25px;
+}
+
+.info-card span {
+  font-weight: 700;
+  display: block;
+}
+
+.info-card small {
+  color: #aaa;
+}
+
+.subscribe-card {
+  background: radial-gradient(circle, rgba(255,122,0,.25), #0e0e0e 70%);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+}
+
+.subscribe-card i {
+  font-size: 26px;
+  color: #ff7a00;
+  margin-bottom: 15px;
+}
+
+.subscribe-card p {
+  color: #bbb;
+  font-size: 14px;
+}
+
+.btn-orange {
+  background: #ff7a00;
+  color: #000;
+  border-radius: 14px;
+  font-weight: 700;
+}
+
+.content-box {
+  background: #0e0e0e;
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.box-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tag-icon {
+  background-color: black;
+  color: #ff7a00;
+  padding: 6px;
+  border: 1px solid #ff5500;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-left: 8px;
+}
+
+.tags span {
+  background: #151515;
+  color: #777;
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin-left: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+  &:hover{
+    border: 1px #f97316 solid;
+    color: #f97316;
+    cursor: pointer;
+  }
+}
+
+.share-icons i {
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-x-twitter:hover {
+  background-color: #1da1f2;
+}
+
+.fa-linkedin-in:hover {
+  background-color: #0a66c2;
+}
+
+.fa-whatsapp:hover {
+  background-color: #25d366;
+}
+
+.fa-link:hover{
+  background-color: #f97316;
+}
+
+.author-box {
+  display: flex;
+  align-items: center;
+}
+
+.author-box img {
+  width: 90px;
+  height: 90px;
+  margin-left: 20px;
+  border-radius: 20%;
+  border: 3px solid #ff7a00;
+}
+
+.author-info h6 {
+  color: #ff7a00;
+  font-size: 14px;
+}
+
+.author-info span {
+  color: #6e6e6e;
+  font-size: 14px;
+  font-weight: 350;
+}
+
+.author-info p {
+  color: #bbb;
+  font-size: 14px;
+}

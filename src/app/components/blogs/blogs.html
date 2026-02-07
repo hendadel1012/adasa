@@ -1,0 +1,204 @@
+<body>
+  <section class="hero-section d-flex align-items-center position-relative overflow-hidden">
+
+  <div class="hero-grid"></div>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container position-relative">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+
+        <!-- Label -->
+        <div class="hero-label mb-4">
+          <span class="dot"></span>
+           مدونتنا
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero-title mb-4">
+           استكشف <span class="gradient-text">مقالاتنا</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="hero-desc mb-5">
+          اكتشف الدروس والرؤى وأفضل الممارسات للتطوير الحديث
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class=" search-bar">
+    <div class="container py-3">
+
+      <div class="row g-3 align-items-center justify-content-around">
+
+        <!-- Search -->
+        <div class="col-md-4">
+          <div class="position-relative">
+            <input type="text" class="form-control search-input" placeholder="ابحث في المقالات..."
+            [(ngModel)]="searchText" (input)="searchPosts()">
+            <i class="fa fa-search search-icon"></i>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+      <div  class="col-md-8 d-flex flex-wrap justify-content-md-end justify-content-center gap-2 text-md-end text-center ">
+
+        <button
+          class="btn"
+          [class.btn-orange]="activeCategory === 'all'"
+          [class.btn-outline-orange]="activeCategory !== 'all'"
+          (click)="filterPosts('all')">
+          جميع المقالات
+        </button>
+
+        <button
+          class="btn "
+          [class.btn-orange]="activeCategory === 'إضاءة'"
+          [class.btn-outline-orange]="activeCategory !== 'إضاءة'"
+          (click)="filterPosts('إضاءة')">
+          إضاءة
+        </button>
+
+        <button
+          class="btn "
+          [class.btn-orange]="activeCategory === 'بورتريه'"
+          [class.btn-outline-orange]="activeCategory !== 'بورتريه'"
+          (click)="filterPosts('بورتريه')">
+          بورتريه
+        </button>
+
+        <button
+          class="btn"
+          [class.btn-orange]="activeCategory === 'مناظر طبيعية'"
+          [class.btn-outline-orange]="activeCategory !== 'مناظر طبيعية'"
+          (click)="filterPosts('مناظر طبيعية')">
+          مناظر طبيعية
+        </button>
+
+        <button
+          class="btn"
+          [class.btn-orange]="activeCategory === 'تقنيات'"
+          [class.btn-outline-orange]="activeCategory !== 'تقنيات'"
+          (click)="filterPosts('تقنيات')">
+           تقنيات
+        </button>
+
+        <button
+          class="btn"
+          [class.btn-orange]="activeCategory === 'معدات'"
+          [class.btn-outline-orange]="activeCategory !== 'معدات'"
+          (click)="filterPosts('معدات')">
+           معدات
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <!-------- Articles ------>
+  <div class="container py-5">
+<div class="row" [class.list-view]="viewMode === 'list'">
+ <div class="d-flex justify-content-between mb-4">
+      <p>عرض <span class="fw-bold text-white">{{filteredPosts.length}}</span> مقالات</p>
+      <div class="view-toggle">
+
+        <button
+          class="view-btn"
+          [class.active]="viewMode === 'grid'"
+          (click)="setGridView()">
+          <i class="fa fa-th"></i>
+        </button>
+
+         <button
+          class="view-btn"
+          [class.active]="viewMode === 'list'"
+          (click)="setListView()">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+</div>
+
+
+    <!-- Cards -->
+    <div class="row g-4">
+
+      <!-- Card -->
+     @for (post of filteredPosts.slice((currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage); track $index) {
+       <div [class.col-12]="viewMode === 'list'"
+            [class.col-md-6]="viewMode === 'grid'"
+            [class.col-lg-4]="viewMode === 'grid'">
+        <article class="article-card"  [routerLink]="['/blog-details', post.id]">
+          <div class="article-img">
+            <img [src]="post.image" alt="image">
+            <span class="category">{{post.category}}</span>
+          </div>
+
+          <div class="article-body">
+            <div class="meta">
+              <span><i class="fa-regular fa-clock"></i> {{post.readTime}}</span>
+              <span class="dot-sm"></span>
+              <span>{{post.date}}</span>
+            </div>
+
+            <h3>{{post.title}}</h3>
+            <p>
+              {{post.excerpt}}
+            </p>
+
+            <div class="article-footer">
+              <div class="author">
+                <img [src]="post.author.avatar" alt="avatar">
+                <div>
+                  <span>{{post.author.name}}</span>
+                  <br>
+                  <small>{{post.author.role}}</small>
+                </div>
+              </div>
+
+              <span class="read-icon">
+                <i class="fa-solid fa-chevron-left"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+     }
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="pagination-wrapper mt-5">
+      <button class="page-btn"
+              (click)="currentPage = currentPage - 1"
+              [disabled]="currentPage === 1">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+
+      <button class="page-btn" [class.active]="currentPage === 1" (click)="currentPage = 1">1</button>
+      <button class="page-btn" [class.active]="currentPage === 2" (click)="currentPage = 2">2</button>
+      <button class="page-btn" [class.active]="currentPage === 3" (click)="currentPage = 3">3</button>
+      <button class="page-btn" [class.active]="currentPage === 4" (click)="currentPage = 4">4</button>
+      <button class="page-btn" [class.active]="currentPage === 5" (click)="currentPage = 5">5</button>
+
+      <button class="page-btn"
+              (click)="currentPage = currentPage + 1">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+
+    </div>
+    <p class="page-info">صفحة {{currentPage}} من 5</p>
+
+  </div>
+</section>
+</body>

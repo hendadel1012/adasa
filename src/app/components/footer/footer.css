@@ -1,0 +1,119 @@
+.footer-section {
+  background: radial-gradient(circle at center, #1a140f, #000);
+  direction: ltr;
+}
+
+.footer-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-title .line {
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(to right,oklch(70.5% .213 47.604),oklch(79.5% .184 86.047));
+}
+
+
+.footer-text {
+  font-size: 13px;
+  color: oklch(55.6% 0 0);
+  line-height: 1.8;
+}
+
+.footer-input {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 12px;
+  color: #fff;
+  direction: rtl;
+}
+
+.footer-input::placeholder {
+  color: #666;
+}
+
+.footer-btn {
+  background: linear-gradient(to bottom right,oklch(70.5% .213 47.604),oklch(64.6% .222 41.116));
+  border-radius: 999px;
+  padding: 12px;
+  font-size: 14px;
+  color: white;
+}
+
+.footer-list {
+  direction: rtl;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  font-size: 13px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  a{
+    text-decoration: none;
+    color: oklch(55.6% 0 0);
+  }
+
+}
+
+.footer-list li a:hover {
+  color:oklch(70.5% .213 47.604);
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.brand-icon {
+  background: linear-gradient(to bottom right,oklch(70.5% .213 47.604),oklch(64.6% .222 41.116));
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.social-icons a {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #111;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  cursor: pointer;
+  color:oklch(55.6% 0 0);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: linear-gradient(to bottom right,oklch(70.5% .213 47.604),oklch(64.6% .222 41.116));
+  color: white;
+  transform: scale(1.1);
+}
+
+.footer-line {
+  border-color: oklch(55.6% 0 0);;
+}
+
+.bottom a{
+text-decoration: none;
+cursor: pointer;
+&:hover {
+  color:oklch(70.5% .213 47.604);
+}
+}

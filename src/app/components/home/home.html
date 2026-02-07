@@ -1,0 +1,396 @@
+
+<body>
+<section class="hero-section d-flex align-items-center position-relative overflow-hidden">
+
+
+  <div class="hero-grid"></div>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container position-relative">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+
+        <!-- Label -->
+        <div class="hero-label mb-4">
+          مرحباً بك في عدسة
+          <span class="dot"></span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero-title mb-4">
+          اكتشف <span class="gradient-text">فن</span><br>
+          التصوير الفوتوغرافي
+        </h1>
+
+        <!-- Description -->
+        <p class="hero-desc mb-5">
+          انغمس في أسرار المحترفين ونصائح عملية لتطوير مهاراتك في التصوير.
+        </p>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-center gap-3 flex-wrap mb-5">
+
+          <a routerLink="/home" class="btn btn-outline-custom">
+            اعرف المزيد
+            <i class="fa-solid fa-circle-info ms-2"></i>
+          </a>
+
+           <a routerLink="/blogs" class="btn btn-primary-custom">
+            <i class="fa-solid fa-arrow-left ms-2"></i>
+             استكشف المقالات
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="row g-3 justify-content-center">
+
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <i class="fa-solid fa-pen-nib"></i>
+              <h3>6</h3>
+              <p>كاتب</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <i class="fa-solid fa-folder-open"></i>
+              <h3>4</h3>
+              <p>تصنيفات</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <i class="fa-solid fa-users"></i>
+              <h3>+10ألف</h3>
+              <p>قارئ</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <i class="fa-solid fa-newspaper"></i>
+              <h3>+50</h3>
+              <p>مقالة</p>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- -------------------- -->
+ <section class="featured-section position-relative overflow-hidden">
+  <div class="featured-glow"></div>
+
+  <div class="container position-relative">
+
+    <!-- Header -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end mb-5 gap-3">
+      <div>
+        <span class="section-label">
+          <span class="dot"></span>
+          مميز
+        </span>
+        <h2 class="section-title">مقالات مختارة</h2>
+        <p class="section-subtitle">محتوى منتقى لبدء رحلة تعلمك</p>
+      </div>
+
+      <a routerLink="/blogs" class="btn btn-gradient">
+        عرض الكل
+        <i class="fa-solid fa-arrow-left ms-2"></i>
+      </a>
+    </div>
+
+    <!-- Articles -->
+    <div class="row g-4">
+
+      <!-- Article -->
+       @for (post of posts.slice(0, 3); track $index) {
+      <div class="col-12">
+        <article class="article-card"  [routerLink]="['/blog-details', post.id]">
+          <div class="row g-0">
+
+            <!-- Image -->
+            <div class="col-md-6 position-relative article-img">
+              <img [src]="post.image" alt="image">
+              <span class="badge-featured">
+                <i class="fa-solid fa-star"></i> مميز
+              </span>
+            </div>
+
+            <!-- Content -->
+            <div class="col-md-6 article-content">
+              <div class="article-meta mb-3">
+                <span class="tag">{{post.tags[0]}}</span>
+                <span class="time">
+                  <i class="fa-regular fa-clock"></i> {{post.readTime}}
+                </span>
+              </div>
+
+              <h3 class="article-title">
+                {{post.title}}
+              </h3>
+
+              <p class="article-desc">
+                {{post.excerpt}}
+              </p>
+
+              <div class="article-footer">
+                <div class="author">
+                  <img [src]="post.author.avatar" alt="avatar">
+                  <div>
+                    <span>{{post.author.name}}</span>
+                    <br>
+                    <small>{{post.date}}</small>
+                  </div>
+                </div>
+
+                 <a [routerLink]="['/blog-details', post.id]" class="read-more">
+                  اقرأ المقال
+                  <i class="fa-solid fa-arrow-left"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </article>
+      </div>
+    }
+    </div>
+  </div>
+</section>
+
+<!-- ------------------------------ -->
+ <section class="categories-section py-5 border-top border-bottom">
+  <div class="container">
+
+    <!-- Title -->
+    <div class="text-center mb-5">
+      <div class="section-label d-inline-flex align-items-center gap-2 mb-3">
+        <span class="dot"></span>
+        <span>التصنيفات</span>
+      </div>
+
+      <h2 class="section-title">استكشف حسب الموضوع</h2>
+      <p class="section-subtitle">
+        اعثر على محتوى مصمم حسب اهتماماتك
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="row g-4">
+
+      <!-- Card -->
+        <div class="col-6 col-md-3">
+        <a routerLink="/blogs" class="category-card">
+          <div class="icon-box">
+            <i class="fa-solid fa-sun"></i>
+          </div>
+          <h5>إضاءة</h5>
+          <p>3 مقالات</p>
+          <span class="arrow">
+            <i class="fa-solid fa-chevron-left"></i>
+          </span>
+        </a>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <a  routerLink="/blogs" class="category-card ">
+          <div class="icon-box">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h5>بورتريه</h5>
+          <p>3 مقالات</p>
+          <span class="arrow">
+            <i class="fa-solid fa-chevron-left"></i>
+          </span>
+        </a>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <a routerLink="/blogs" class="category-card">
+          <div class="icon-box">
+            <i class="fa-solid fa-mountain-sun"></i>
+          </div>
+          <h5>مناظر طبيعية</h5>
+          <p>2 مقالات</p>
+          <span class="arrow">
+            <i class="fa-solid fa-chevron-left"></i>
+          </span>
+        </a>
+      </div>
+
+       <div class="col-6 col-md-3">
+        <a routerLink="/blogs" class="category-card">
+          <div class="icon-box">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+          <h5>تقنيات</h5>
+          <p>5 مقالات</p>
+          <span class="arrow">
+            <i class="fa-solid fa-chevron-left"></i>
+          </span>
+        </a>
+      </div>
+
+       <div class="col-6 col-md-3">
+        <a routerLink="/blogs" class="category-card">
+          <div class="icon-box">
+           <i class="fa-solid fa-sun"></i>
+          </div>
+          <h5>معدات</h5>
+          <p>3 مقالة</p>
+          <span class="arrow">
+            <i class="fa-solid fa-chevron-left"></i>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ------------------------------- -->
+<section class="latest-articles py-5 position-relative overflow-hidden">
+  <div class="bg-glow"></div>
+
+  <div class="container position-relative">
+
+    <!-- Header -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end mb-5 gap-3">
+      <div>
+        <span class="section-label mb-3 d-inline-flex align-items-center gap-2">
+          <span class="dot"></span>
+          الأحدث
+        </span>
+        <h2 class="section-title">أحدث المقالات</h2>
+        <p class="section-subtitle">محتوى جديد طازج من المطبعة</p>
+      </div>
+
+      <a routerLink="/blogs" class="view-all d-inline-flex align-items-center gap-2">
+        عرض جميع المقالات
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+    </div>
+
+    <!-- Cards -->
+    <div class="row g-4">
+
+      <!-- Card -->
+     @for (post of posts.slice(3,6); track $index) {
+       <div class="col-md-6 col-lg-4" >
+        <article class="article-card"  [routerLink]="['/blog-details', post.id]">
+          <div class="article-img">
+            <img [src]="post.image" alt="image">
+            <span class="category">{{post.category}}</span>
+          </div>
+
+          <div class="article-body">
+            <div class="meta">
+              <span><i class="fa-regular fa-clock"></i> {{post.readTime}}</span>
+              <span class="dot-sm"></span>
+              <span>{{post.date}}</span>
+            </div>
+
+            <h3>{{post.title}}</h3>
+            <p>
+              {{post.excerpt}}
+            </p>
+
+            <div class="article-footer">
+              <div class="author">
+                <img [src]="post.author.avatar" alt="avatar">
+                <div>
+                  <span>{{post.author.name}}</span>
+                  <br>
+                  <small>{{post.author.role}}</small>
+                </div>
+              </div>
+
+              <span class="read-icon">
+                <i class="fa-solid fa-chevron-left"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+     }
+
+    </div>
+  </div>
+</section>
+
+<!-- ------------------------------- -->
+<section class="newsletter-section position-relative overflow-hidden">
+  <!-- Glow -->
+  <div class="newsletter-glow"></div>
+
+  <div class="container">
+    <div class="newsletter-card mx-auto text-center">
+
+      <!-- Icon -->
+      <div class="newsletter-icon mx-auto mb-4">
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+
+      <!-- Title -->
+      <h2 class="newsletter-title mb-3">
+        اشترك في <span class="gradient-text">نشرتنا الإخبارية</span>
+      </h2>
+
+      <!-- Subtitle -->
+      <p class="newsletter-desc mb-4">
+        احصل على نصائح التصوير الحصرية ودروس جديدة مباشرة في بريدك الإلكتروني
+      </p>
+
+      <!-- Form -->
+      <form class="newsletter-form d-flex flex-column flex-sm-row gap-3 mb-4 me-5">
+        <input
+          type="email"
+          class="form-control newsletter-input"
+          placeholder="أدخل بريدك الإلكتروني"
+        >
+        <button class="btn newsletter-btn">
+          اشترك الآن
+        </button>
+      </form>
+
+      <!-- Footer Info -->
+      <div class="newsletter-footer d-flex flex-wrap justify-content-center align-items-center gap-3">
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="avatars d-flex">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32" alt="avatar">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32" alt="avatar">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32" alt="avatar">
+          </div>
+          <span>
+            انضم لـ <strong class="text-white">+10,000</strong> مصور
+          </span>
+        </div>
+
+        <span class="dot-sep">•</span>
+        <span>بدون إزعاج</span>
+        <span class="dot-sep">•</span>
+        <span>إلغاء الاشتراك في أي وقت</span>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+
+
+

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+  <div class="container-fluid px-4">
+
+    <!-- Right (Logo) -->
+    <div routerLink="home" class="logo d-flex align-items-center gap-2 order-lg-3 ">
+      <div class="text-end">
+        <span class="logo-title d-block">عدسة</span>
+        <span class="logo-subtitle">عالم التصوير الفوتوغرافي</span>
+      </div>
+
+      <div class="logo-icon">⦿</div>
+    </div>
+
+    <!-- Center -->
+    <div class="collapse navbar-collapse justify-content-center order-lg-2">
+      <ul class="navbar-nav nav-center">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="whoWe" routerLinkActive="active">من نحن</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="blogs" routerLinkActive="active">المدونة</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="active">الرئيسية</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Left -->
+    <div class="d-flex align-items-center gap-3 order-lg-1">
+      <a class="btn start-btn"  routerLink="blogs">ابدأ القراءة</a>
+      <button class="btn search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+      <!-- Toggle (Mobile) -->
+      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
